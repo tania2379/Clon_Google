@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Clon</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .logo {
+            margin-top: 100px;
+        }
+        .search-bar {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+        .search-bar form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 1px solid #dcdcdc;
+            border-radius: 24px;
+            outline: none;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .buttons input {
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .buttons input:hover {
+            border: 1px solid #c6c6c6;
+        }
+        .footer {
+            background-color: #f2f2f2;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #70757a;
+        }
+        .footer-top, .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer-top {
+            border-bottom: 1px solid #dadce0;
+            padding-bottom: 10px;
+        }
+        .footer a {
+            color: #70757a;
+            text-decoration: none;
+            margin: 5px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .language {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .language a {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <div class="logo">
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google">
+        </div>
+
+        <div class="search-bar">
+            <form id="searchForm">
+                <input type="text" id="searchInput" placeholder="Buscar en Google...">
+                <div class="buttons">
+                    <input type="submit" value="Buscar con Google">
+                    <input type="button" value="Me siento con suerte" onclick="redirectToGoogle()">
+                </div>
+            </form>
+        </div>
+
+        <div class="language">
+            Ofrecido por Google en: 
+            <a href="#">English</a> 
+            <a href="#">Français</a> 
+            <a href="#">Deutsch</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div>México</div>
+        </div>
+        <div class="footer-bottom">
+            <div>
+                <a href="#">Sobre Google</a>
+                <a href="#">Publicidad</a>
+                <a href="#">Negocios</a>
+                <a href="#">Cómo funciona la Búsqueda</a>
+            </div>
+            <div>
+                <a href="#">Privacidad</a>
+                <a href="#">Condiciones</a>
+                <a href="#">Preferencias</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('searchForm');
+        const searchInput = document.getElementById('searchInput');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = searchInput.value.trim();
+            if (query) {
+                window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+            }
+        });
+
+        function redirectToGoogle() {
+            const query = searchInput.value.trim();
+            if (query) {
+                window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+            }
+        }
+    </script>
+
+</body>
+</html>
